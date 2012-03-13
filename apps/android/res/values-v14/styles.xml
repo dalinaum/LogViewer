@@ -7,9 +7,5 @@
         <item name="@android:textAppearanceLargeInverse">@style/LogViewer.TextView.Inverse</item>
         <item name="@android:buttonStyle">@style/button</item>
         <item name="@android:radioButtonStyle">@style/button.radiobutton</item>
-    </style>
-    
-    <style name="LogViewer.TextView" parent="@android:style/TextAppearance.Holo"></style>
-    <style name="LogViewer.TextView.Large" parent="@android:style/TextAppearance.Holo.Inverse"></style>
-    
+    </style>   
 </resources>
