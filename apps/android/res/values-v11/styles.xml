@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="LogViewer.Theme" parent="@android:style/Theme.Holo.Light">
+        <item name="@android:textAppearance">@style/LogViewer.TextView</item>
+        <item name="@android:textAppearanceInverse">@style/LogViewer.TextView.Inverse</item>
+        <item name="@android:textAppearanceLarge">@style/LogViewer.TextView.Large</item>
+        <item name="@android:textAppearanceLargeInverse">@style/LogViewer.TextView.Inverse</item>
+        <item name="@android:buttonStyle">@style/button</item>
+        <item name="@android:radioButtonStyle">@style/button.radiobutton</item>
+    </style>
+    
+    <style name="LogViewer.TextView" parent="@android:style/TextAppearance.Holo"></style>
+    <style name="LogViewer.TextView.Large" parent="@android:style/TextAppearance.Holo.Inverse"></style>
+    
+</resources>

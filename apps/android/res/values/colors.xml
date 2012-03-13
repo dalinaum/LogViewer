@@ -6,4 +6,6 @@
     <color name="gray">#888888</color>
     <color name="yellow">#ffff00</color>
     <color name="bg">#1a2436</color>
+    <color name="nick_notmatch">#ff888888</color>
+    <color name="message_default">#ffcccccc</color>
 </resources>

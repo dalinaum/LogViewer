@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <color name="nick_notmatch">#ff888888</color>
+    <color name="message_default">#ff555555</color>
+</resources>

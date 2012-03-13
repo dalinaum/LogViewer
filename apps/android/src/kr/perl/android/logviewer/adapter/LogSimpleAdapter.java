@@ -40,6 +40,7 @@ public class LogSimpleAdapter extends SimpleAdapter {
 	private int mResourceId;
 	private Map<String, Integer> mNickname;
 	private int mIndex;
+	private Context mContext;
 	
 	public LogSimpleAdapter(Context context, List<? extends Map<String, ?>> data, int resource, String[] from, int[] to) {
 		super(context, data, resource, from, to);
@@ -47,6 +48,7 @@ public class LogSimpleAdapter extends SimpleAdapter {
 		mResourceId = resource;
 		mNickname = new HashMap<String, Integer>();
 		mIndex = 0;
+		mContext = context;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -80,12 +82,14 @@ public class LogSimpleAdapter extends SimpleAdapter {
         tvMessage.setText(message);
         
         if (nickname.equals("")) {
-        	tvNickname.setTextColor(Color.GRAY);
-        	tvMessage.setTextColor(Color.GRAY);
+        	int notMatchColor = mContext.getResources().getColor(R.color.nick_notmatch);
+        	tvNickname.setTextColor(notMatchColor);
+        	tvMessage.setTextColor(notMatchColor);
         	return row;
         }
 
-        tvMessage.setTextColor(Color.LTGRAY);
+        int defaultColor = mContext.getResources().getColor(R.color.message_default);
+        tvMessage.setTextColor(defaultColor);
         if (!mNickname.containsKey(nickname)) {
         	Matcher m = Constants.PATTERN_WHITECAT.matcher(nickname);
         	if (m.find()) {

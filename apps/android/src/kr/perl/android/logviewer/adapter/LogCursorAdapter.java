@@ -11,7 +11,6 @@ import kr.perl.android.logviewer.R;
 import kr.perl.provider.LogViewer.Logs;
 import android.content.Context;
 import android.database.Cursor;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,12 +30,14 @@ public class LogCursorAdapter extends CursorAdapter {
 	private LayoutInflater mLayoutInflater;
 	private Map<String, Integer> mNickname;
 	private int mIndex;
+	private Context mContext;
 	
 	public LogCursorAdapter (Context context, int layout, Cursor c) {
         super(context, c);
         mResourceId = layout;
         mLayoutInflater = LayoutInflater.from(context);
         mNickname = new HashMap<String, Integer>();
+        mContext = context;
     }
 	
 	@Override
@@ -85,12 +86,14 @@ public class LogCursorAdapter extends CursorAdapter {
         viewHolder.message.setText(message);
         
         if (nickname.equals("")) {
-        	viewHolder.nickname.setTextColor(Color.GRAY);
-        	viewHolder.message.setTextColor(Color.GRAY);
+        	int notMatchColor = mContext.getResources().getColor(R.color.nick_notmatch);
+			viewHolder.nickname.setTextColor(notMatchColor);
+        	viewHolder.message.setTextColor(notMatchColor);
         	return v;
         }
 
-        viewHolder.message.setTextColor(Color.LTGRAY);
+        int defaultColor = mContext.getResources().getColor(R.color.message_default);
+        viewHolder.message.setTextColor(defaultColor);
         if (!mNickname.containsKey(nickname)) {
         	Matcher m = Constants.PATTERN_WHITECAT.matcher(nickname);
         	if (m.find()) {
@@ -104,10 +107,10 @@ public class LogCursorAdapter extends CursorAdapter {
        	viewHolder.nickname.setTextColor(mNickname.get(nickname));
         return v;
 	}
-	
+
 	private class ViewHolder {
 		TextView time;
-        TextView nickname;
-        TextView message;
+		TextView nickname;
+		TextView message;
 	}
 }
